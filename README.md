@@ -1,8 +1,6 @@
+# Studio Abreu
 
-# Eric Finbarr Carey • Tenor – Next.js Site
-
-Minimal React/Next.js codebase that mirrors the layout of ericfinbarrcarey.com.  
-Simply edit the data files in `/data`, swap images in `/public`, and redeploy.
+A Next.js marketing site for Studio Abreu – a boutique studio building trust-first websites for restaurants and hospitality teams.
 
 ## Getting Started
 
@@ -11,16 +9,23 @@ npm install
 npm run dev
 ```
 
-## Update Content
+## Content Overview
 
-- **Hero, quote, event list** – `pages/index.js`
-- **About** – `pages/about.js`
-- **Press quotes** – `data/press.js`
-- **Gallery images** – place files in `/public/gallery`
-- **Recordings** – drop MP3/MP4 files in `/public/audio` & edit `pages/listen.js`
-- **Events** – edit `data/events.js`
-- **Contact Form** – replace Formspree ID in `pages/contact.js`
+- **Homepage** – `pages/index.js`
+- **Approach** – `pages/about.js`
+- **Work / Case studies** – `pages/work.js`
+- **Pricing** – `pages/pricing.js`
+- **Contact form** – `pages/contact.js` and `pages/api/contact.js`
+- **Shared layout** – `components/Layout.js`, `components/Header.js`, `components/Footer.js`
+- **Styling** – modular CSS files inside `styles/`
 
 ## Deployment
 
-Works out‑of‑the‑box on Vercel, Netlify (via `next-on-netlify`), or any Node host.
+Deploy with Vercel for the best Next.js experience:
+
+```bash
+npm run build
+npm run start
+```
+
+Environment variables for email delivery are configured in `lib/email.js`.

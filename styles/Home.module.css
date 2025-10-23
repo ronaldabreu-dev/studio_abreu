@@ -1,772 +1,370 @@
-@import url('https://fonts.googleapis.com/css?family=Playfair+Display:700&display=swap');
-
 .main {
-  background: #e5e0d3;
-  font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
-  color: #222;
-}
-
-.tenor {
-  font-size: 1.1rem;
-  letter-spacing: 0.35em;
-  color: #f3e7b4;
-  font-weight: 300;
-  margin-left: 1.5rem;
-  vertical-align: super;
-  text-transform: uppercase;
-}
-
-/* --- Base .quoteSection styles --- */
-.quoteSection {
-  display: flex;
-  flex-wrap: wrap;
-  background: #e5e0d3;
-  padding: 1.2rem 0 1rem 0;
-  align-items: center;
-  gap: 1.2rem;
-  justify-content: space-between;
-  min-height: 68vh !important;
-  animation: fadeInUp 1.2s 0.3s cubic-bezier(.23,1.01,.32,1) both;
-}
-
-/* Compact variant — keeps the section close to the paragraph height */
-.compactQuote {
-  padding: 1.25rem 5vw;                 /* was larger */
-}
-
-.compactQuote .bigQuote {
-  font-size: clamp(1.25rem, 2.2vw, 2rem); /* much smaller headline */
-  margin: 0 0 0.75rem 0;                  /* less space under it */
-  letter-spacing: 0.08em;
-}
-
-.compactQuote .bioRow {
-  display: grid;                           /* tighter, balanced layout */
-  grid-template-columns: minmax(0, 1fr) auto;
-  align-items: center;
-  gap: clamp(0.75rem, 2vw, 1.25rem);       /* smaller gap */
-  padding: 0;                               /* remove extra vertical padding */
-}
-
-.compactQuote .bio {
-  max-width: 60ch;                          /* comfortable line length */
-  font-size: 1.05rem;
-  line-height: 1.6;
-  margin: 0;
-}
-
-.compactQuote .quotePortrait {
-  padding-left: 0;                           /* no extra inset */
-  flex: 0 0 auto;                            /* don’t stretch */
-}
-
-.compactQuote .portraitImg {
-  width: clamp(200px, 28vw, 360px);          /* smaller image */
-  max-height: 360px;                         /* cap height so it doesn’t tower */
-  height: auto;
-  object-fit: cover;
-  border-radius: 16px;
-  box-shadow: 0 8px 24px rgba(34,34,34,.12);
-}
-
-/* Optional: on very wide screens, keep it tight */
-@media (min-width: 1400px) {
-  .compactQuote .portraitImg { max-height: 320px; }
-}
-
-/* Optional: on narrow screens, let it breathe a bit */
-@media (max-width: 900px) {
-  .compactQuote { padding: 1rem 4vw; }
-  .compactQuote .bigQuote { font-size: 1.3rem; }
-  .compactQuote .bioRow {
-    grid-template-columns: 1fr;             /* stack on mobile */
-    gap: 1rem;
-  }
-  .compactQuote .portraitImg {
-    width: min(75vw, 320px);
-    max-height: none;
-  }
-}
-
-
-/* --- Responsive overrides --- */
-@media (max-width: 1100px) {
-  .quoteSection {
-    flex-direction: column;
-    gap: 2rem;
-    padding: 2.5rem 0 1.5rem 0;
-    min-height: unset;
-  }
-  .quoteCollageBlock, .quotePortrait {
-    padding: 0;
-    align-items: center;
-  }
-  .bioRow {
-    padding: 1.75rem 3vw;
-  }
-  .bioCopy {
-    padding-right: min(2vw, 1.5rem);
-  }
-  .quotePortrait {
-    padding-left: min(2vw, 1.5rem);
-  }
-}
-
-@media (max-width: 900px) {
-  .quoteSection {
-    flex-direction: column;
-    padding: 2rem 0 1rem 0;
-  }
-  .bioRow {
-    flex-direction: column;
-    align-items: center;
-    padding: 1.5rem 2rem;
-    gap: 2rem;
-  }
-  .bioCopy {
-    padding-right: 0;
-    align-items: center;
-    text-align: center;
-  }
-  .bio {
-    text-align: center;
-  }
-  .quotePortrait {
-    padding-left: 0;
-  }
-}
-
-@media (max-width: 768px) {
-  .quoteSection {
-    flex-direction: column;
-    padding: 2rem 1rem;
-    gap: 1rem;
-    text-align: center;
-  }
-  .quoteCollageBlock, .quotePortrait {
-    text-align: center;
-  }
-  .bioRow {
-    flex-direction: column;
-    align-items: center;
-    padding: 1.5rem 1rem;
-  }
-  .bioCopy {
-    padding-right: 0;
-  }
-}
-
-@media (max-width: 700px) {
-  .quoteSection {
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 1.2rem 0.5rem 1rem 0.5rem;
-    gap: 0.3rem;
-  }
-  .quoteCollageBlock, .quotePortrait {
-    padding: 0;
-    align-items: center;
-    text-align: center;
-  }
-  .bioRow {
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
-  }
-  .bioCopy {
-    padding-right: 0;
-  }
-  .bigQuote {
-    margin-bottom: 0.5rem;
-  }
-  .quotePortrait {
-    margin-top: 0.5rem;
-    padding-left: 0;
-  }
-}
-
-.quoteCollageBlock {
-  flex: 2 1 480px;
-  min-width: 340px;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  padding-left: 5vw;
-  text-align: left;
+  gap: 0;
+  background: var(--background-color);
 }
 
-/* --- Base .bigQuote styles --- */
-.bigQuote {
-  font-size: 3.2rem;
-  font-weight: 700;
-  margin: 0 0 2.2rem 0;
-  color: #222;
+.hero {
+  position: relative;
+  padding: 7rem 1.5rem 6rem;
+  background: radial-gradient(circle at top right, rgba(183, 101, 43, 0.18), transparent 55%),
+    linear-gradient(135deg, #101511, #1b211a 60%, #141a15 100%);
+  color: #f5f1eb;
+}
+
+.heroInner {
+  max-width: 760px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.heroEyebrow {
+  margin: 0;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  color: rgba(245, 241, 235, 0.65);
+}
+
+.heroTitle {
+  margin: 0;
+  font-family: var(--heading-font);
+  font-size: clamp(2.6rem, 5vw, 3.8rem);
+  line-height: 1.15;
+  letter-spacing: 0.02em;
+}
+
+.heroSubtitle {
+  margin: 0;
+  font-size: 1.1rem;
+  color: rgba(245, 241, 235, 0.78);
+}
+
+.ctaGroup {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.primaryCta,
+.secondaryCta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  padding: 0.85rem 1.8rem;
+  font-size: 0.95rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  font-family: 'Playfair Display', Georgia, serif;
-  line-height: 1.1;
+  border: 1px solid rgba(245, 241, 235, 0.45);
+  transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
 
-/* --- Responsive overrides --- */
-@media (max-width: 768px) {
-  .bigQuote {
-    font-size: 1.7rem;
-    margin-bottom: 1rem;
-  }
-}
-@media (max-width: 700px) {
-  .bigQuote {
-    margin-bottom: 0.5rem;
-  }
+.primaryCta {
+  background: #f5f1eb;
+  color: #151c15;
+  border-color: transparent;
 }
 
-.bioRow {
-  display: flex;
-  align-items: stretch;
-  gap: min(5vw, 4rem);
-  width: 100%;
-  padding: 2rem 5vw;
+.primaryCta:hover,
+.primaryCta:focus {
+  background: var(--accent-color);
+  color: #fefaf5;
 }
-.bioCopy {
-  flex: 1 1 48%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  padding-right: min(3vw, 2.5rem);
+
+.secondaryCta {
+  color: #f5f1eb;
 }
-.bio {
-  font-size: 1.15rem;
-  margin: 0;
-  color: #222;
+
+.secondaryCta:hover,
+.secondaryCta:focus {
+  border-color: #f5f1eb;
+  color: #fefaf5;
+}
+
+.heroBadge {
+  align-self: flex-start;
+  font-size: 0.9rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding: 0.6rem 1.2rem;
+  border-radius: 999px;
+  background: rgba(245, 241, 235, 0.1);
+  color: rgba(245, 241, 235, 0.75);
+  border: 1px solid rgba(245, 241, 235, 0.28);
+}
+
+.sectionHeader {
+  max-width: 720px;
+  margin: 0 auto 3rem;
   text-align: left;
-  max-width: 42rem;
 }
-.collageWrapper {
-  margin-top: 1.5rem;
-  margin-bottom: 0.5rem;
+
+.sectionEyebrow {
+  margin: 0 0 0.85rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  color: var(--muted-ink);
 }
-.collageImg {
-  border-radius: 12px;
-  box-shadow: 0 4px 24px rgba(34,34,34,0.13);
-  width: 320px !important;
-  height: 160px !important;
-  object-fit: cover;
+
+.sectionTitle {
+  margin: 0;
+  font-family: var(--heading-font);
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  line-height: 1.2;
+  color: var(--ink);
 }
-.quotePortrait {
-  flex: 1 1 52%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding-left: min(3vw, 2.5rem);
+
+.pillarsSection {
+  background: var(--background-color);
 }
-.portraitImg {
+
+.pillarsGrid {
+  display: grid;
+  gap: 1.75rem;
+  max-width: 1100px;
+  margin: 0 auto;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+.pillarCard {
+  background: white;
   border-radius: 18px;
-  box-shadow: 0 8px 32px rgba(34,34,34,0.18);
-  width: min(100%, 32rem);
-  max-width: clamp(24rem, 38vw, 34rem);
-  height: auto;
-  aspect-ratio: 3 / 4;
-  object-fit: cover;
+  padding: 2rem;
+  box-shadow: 0 24px 45px rgba(27, 30, 26, 0.08);
+  border: 1px solid rgba(27, 30, 26, 0.05);
 }
 
-.featureSection {
-  background: url('/images/collage.jpg') center/cover no-repeat;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center;
-  position: relative;
-  min-height: 120vh;
-  display: flex;
+.pillarCard h3 {
+  margin: 0 0 0.75rem;
+  font-size: 1.2rem;
+}
+
+.pillarCard p {
+  margin: 0;
+  color: var(--muted-ink);
+}
+
+.serviceSection {
+  background: #fbf0e3;
+}
+
+.serviceContent {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  gap: 2.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   align-items: center;
-  justify-content: center;
-  padding: 0;
 }
 
-.featureQuoteOverlay {
-  position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
+.serviceIntro p {
+  color: var(--muted-ink);
+  margin-top: 1rem;
+}
+
+.serviceDetails {
+  background: white;
+  border-radius: 20px;
+  padding: 2.2rem;
+  box-shadow: 0 28px 48px rgba(27, 30, 26, 0.12);
+  border: 1px solid rgba(27, 30, 26, 0.05);
+}
+
+.priceTag {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  justify-content: center;
-  padding: 4vw 8vw;
-  background: rgba(34, 34, 34, 0.22);
-  z-index: 2;
+  margin-bottom: 1.5rem;
 }
 
-.featureQuote {
-  font-size: 2.6rem;
-  color: #fff;
-  font-family: 'Playfair Display', Georgia, serif;
-  font-weight: 400;
-  line-height: 1.15;
-  margin: 0 0 1.2rem 0;
-  text-shadow: 0 2px 12px rgba(34,34,34,0.22);
+.pricePrimary {
+  font-family: var(--heading-font);
+  font-size: 2.8rem;
 }
 
-.featureAttribution {
-  font-size: 1.5rem;
-  color: #fff;
-  font-weight: 300;
-  margin-top: 0.5rem;
-  text-shadow: 0 2px 8px rgba(34,34,34,0.18);
+.priceMeta {
+  text-transform: uppercase;
+  letter-spacing: 0.28em;
+  font-size: 0.7rem;
+  color: var(--muted-ink);
 }
 
-.featureAttributionHighlight {
-  color: #3eb3c7;
-  font-weight: 700;
+.priceSupport {
+  margin-top: 0.35rem;
+  font-size: 0.95rem;
+  color: var(--muted-ink);
 }
 
-.textImageSection {
-  display: flex;
-  flex-wrap: wrap;
-  background: #e5e0d3;
-  align-items: center;
-  justify-content: center;
-  padding: 5rem 0 4rem 0;
-  gap: 3rem;
-}
-.textBlock {
-  flex: 1 1 340px;
-  min-width: 250px;
-  font-size: 1.18rem;
-  color: #222;
-  font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
-}
-.imageBlock {
-  flex: 1 1 350px;
-  display: flex;
-  justify-content: center;
+.serviceDetails ul {
+  margin: 0;
+  padding-left: 1.2rem;
+  display: grid;
+  gap: 0.75rem;
 }
 
-.secondQuoteSection {
-  background: #bdb7a3;
-  padding: 5rem 0 4rem 0;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  gap: 3rem;
-}
-.secondQuoteBlock {
-  flex: 1 1 350px;
-  min-width: 250px;
-}
-.secondQuoteBlock blockquote {
-  font-size: 2.2rem;
-  font-weight: 700;
-  color: #7a2323;
-  margin: 0 0 1.5rem 0;
-  letter-spacing: 0.08em;
-  font-family: 'Playfair Display', Georgia, serif;
-}
-.gramophone {
-  font-size: 1.18rem;
-  color: #7a2323;
-  font-style: italic;
-}
-.secondQuoteImage {
-  flex: 2 1 500px;
-  display: flex;
-  justify-content: center;
+.serviceDetails li {
+  color: var(--muted-ink);
+  line-height: 1.5;
 }
 
-.footer {
-  background: #222;
-  padding: 2.5rem 0;
-  display: flex;
-  justify-content: center;
-  gap: 2.5rem;
-}
-.footer img {
-  filter: grayscale(1) brightness(1.5);
-  transition: filter 0.2s;
-}
-.footer img:hover {
-  filter: grayscale(0) brightness(1);
+.workPreview {
+  background: var(--background-color);
 }
 
-@keyframes fadeInUp {
-  0% {
-    opacity: 0;
-    transform: translateY(40px);
-  }
-  100% {
-    opacity: 1;
-    transform: none;
-  }
+.workGrid {
+  display: grid;
+  gap: 1.5rem;
+  max-width: 1100px;
+  margin: 0 auto 2.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
 }
 
-.quoteSection {
-  display: flex;
-  flex-wrap: wrap;
-  background: #e5e0d3;
-  padding: 4rem 2rem;
-  align-items: center;
-  gap: 1.2rem;
-  justify-content: space-between;
-  min-height: 75px;
-  animation: fadeInUp 1.2s 0.3s cubic-bezier(.23,1.01,.32,1) both;
-}
-.quoteTextBlock {
-  flex: 1 1 350px;
-  max-width: 600px;
-}
-
-.quoteImageBlock {
-  flex: 1 1 350px;
+.workCard {
+  padding: 2rem;
+  background: linear-gradient(140deg, rgba(27, 30, 26, 0.08), rgba(27, 30, 26, 0));
+  border-radius: 18px;
+  border: 1px solid rgba(27, 30, 26, 0.08);
   display: flex;
   flex-direction: column;
-  gap: 1rem;
-  align-items: center;
-}
-
-.quotePortrait {
-  border-radius: 12px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  width: 100%;
-  height: auto;
-}
-
-.collageImg {
-  border-radius: 12px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  max-width: 300px;
-  width: 100%;
-  height: auto;
-}
-
-.collageRow {
-  display: flex;
   gap: 0.75rem;
-  flex-wrap: wrap;
-  justify-content: center;
 }
 
-/* Scroll animation */
-@keyframes fadeInUp {
-  0% {
-    opacity: 0;
-    transform: translateY(40px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.workLabel {
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  color: var(--muted-ink);
 }
 
-.fade-in {
-  opacity: 0;
-  transform: translateY(40px);
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-}
-
-.fade-in.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Full-bleed parallax-style hero background */
-.hero {
-  position: relative;
-  width: 100%;
-  height: 100vh;
-  min-height: 320px;
-  background: url('/images/hero.jpg') center/cover no-repeat;
-  display: flex;
-  align-items: flex-end;
-  justify-content: flex-end;
-  padding: 2rem 4rem;
-  text-align: right;
-  color: #f3e7b4;
-  overflow: hidden;
-}
-
-.heroText h1 {
-  font-size: 4rem;
-  letter-spacing: 0.22em;
-  font-weight: 400;
-  margin: 0;
-  line-height: 1.1;
-  font-family: 'Playfair Display', Georgia, serif;
-  text-shadow: 0 4px 24px rgba(0,0,0,0.3);
-}
-
-.hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.4);
-  z-index: 1;
-}
-
-.heroText {
-  position: relative;
-  z-index: 2;
-  animation: fadeInUp 1s ease-out both;
-}
-
-@media (max-width: 600px) {
-  .hero {
-    padding: 1.5rem;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    background-attachment: scroll;
-  }
-  .heroText {
-    text-align: center;
-  }
-  .heroText h1 {
-    font-size: 2.5rem;
-    letter-spacing: 0.1em;
-  }
-  .tenor {
-    font-size: 0.9rem;
-    letter-spacing: 0.2em;
-    margin-left: 0;
-    display: block;
-    margin-top: 0.5rem;
-  }
-}
-
-.featureSection img, .featureSection .next-image {
-  border-radius: 12px;
-  box-shadow: 0 4px 24px rgba(0,0,0,0.18);
-}
-
-.textImageSection {
-  background: #e5e0d3;
-  display: flex;
-  flex-wrap: wrap;
+.inlineLink {
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 4rem 2rem;
-  gap: 2rem;
+  gap: 0.5rem;
+  font-size: 0.95rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-bottom: 1px solid currentColor;
+  align-self: center;
 }
 
-.textBlock {
-  flex: 1 1 300px;
-  font-size: 1.1rem;
-  line-height: 1.7;
-  color: #222;
+.processSection {
+  background: #121512;
+  color: #f5f1eb;
 }
 
-.imageBlock {
-  flex: 1 1 350px;
-  display: flex;
-  justify-content: center;
+.processSection .sectionHeader {
+  text-align: left;
 }
 
-.secondQuoteSection {
-  background: #bdb7a3;
-  padding: 4rem 2rem;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  gap: 2rem;
+.processSection .sectionTitle {
+  color: #f5f1eb;
 }
 
-.secondQuoteBlock {
-  flex: 1 1 350px;
-  font-size: 2rem;
-  font-weight: 500;
-  color: #7a2323;
-  letter-spacing: 0.04em;
-  text-align: center;
+.processSection .sectionEyebrow {
+  color: rgba(245, 241, 235, 0.65);
 }
 
-.gramophone {
-  font-size: 1.1rem;
-  color: #7a2323;
-  font-style: italic;
-}
-
-.secondQuoteImage {
-  flex: 1 1 500px;
-  display: flex;
-  justify-content: center;
-}
-
-.footer {
-  background: #222;
-  padding: 2rem;
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
-}
-
-.footer img {
-  filter: grayscale(1) brightness(1.5);
-  transition: filter 0.3s ease;
-}
-
-.footer img:hover {
-  filter: grayscale(0) brightness(1);
-}
-
-.parallaxBackground {
-  position: relative;
-  width: 100%;
-  overflow: hidden;
-}
-
-.calendarSection {
-  background: #fff;
-  padding: 3rem 1rem;
-  text-align: center;
-  border-radius: 12px;
-  box-shadow: 0 2px 16px rgba(34,34,34,0.08);
-  margin: 3rem auto;
+.processGrid {
   max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  gap: 1.75rem;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
 }
 
-.bannerSection {
-  width: 100%;
-  min-height: 600px;
-  background: url('/images/banner.jpg') center center/cover no-repeat;
-  margin: 0 auto 3rem auto;
-  border-radius: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  overflow: hidden;
-}
-
-.highlightSection {
-  width: 100%;
-  min-height: 120vh;
-  background: url('/images/feature.jpg') center/cover no-repeat;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #fff;
-  overflow: hidden;
-  isolation: isolate;
-}
-
-.highlightSection::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.45);
-  z-index: 1;
-}
-
-.highlightOverlay {
-  position: relative;
-  z-index: 2;
-  background: rgba(0, 0, 0, 0.45);
-  padding: 4vw 6vw;
-  text-align: center;
-  box-shadow: 0 20px 36px rgba(0, 0, 0, 0.35);
-}
-
-.highlightQuote {
-  font-size: 2rem;
-  font-family: 'Playfair Display', serif;
-  margin: 0 0 1rem 0;
-}
-
-.highlightAttribution {
-  font-size: 1.2rem;
-  font-style: italic;
-}
-
-.featureSection.parallaxBackground {
-  min-height: 122vh;  /* try 108–120vh until it looks right */
-}
-
-/* Make the portrait column claim more width on wide screens */
-.quotePortrait {
-  flex: 1 1 40%;               /* was 52% */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding-left: min(3vw, 2.5rem);
-}
-
-/* Let the image grow larger */
-.portraitImg {
+.processCard {
+  background: rgba(18, 21, 18, 0.35);
+  border: 1px solid rgba(245, 241, 235, 0.12);
   border-radius: 18px;
-  box-shadow: 0 8px 32px rgba(34,34,34,0.18);
-  width: 100%;
-  max-width: clamp(24rem, 38vw, 34rem); /* was clamp(24rem, 38vw, 34rem) */
-  height: auto;
-  aspect-ratio: 3 / 4;
-  object-fit: cover;
+  padding: 2rem;
 }
 
-/* Give it even more room on very large screens */
-@media (min-width: 1400px) {
-  .quotePortrait { flex-basis: 52%; }
-  .portraitImg   { max-width: clamp(24rem, 38vw, 34rem); }
+.processCard h3 {
+  margin: 0 0 0.85rem;
+  font-size: 1.1rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
 }
 
-/* Keep mobile comfortable */
-@media (max-width: 900px) {
-  .quotePortrait { padding-left: 0; }
-  .portraitImg   { max-width: min(90vw, 34rem); }
+.processCard p {
+  margin: 0;
+  color: rgba(245, 241, 235, 0.78);
 }
 
-/* If you add data-portrait-size="lg" on the container, grow the image more */
-.quotePortrait[data-portrait-size="lg"] .portraitImg {
-  max-width: clamp(32rem, 50vw, 48rem);
+.testimonialSection {
+  background: white;
 }
 
-/* Mobile override for the feature section height */
-@media (max-width: 700px) {
-  .featureSection { 
-    min-height: 68vh !important;
-  }
+.testimonialGrid {
+  max-width: 960px;
+  margin: 0 auto;
+  display: grid;
+  gap: 1.75rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
 }
 
-@media (max-width: 700px) {
-  .highlightSection { 
-    min-height: 68vh !important;
-  }
+.testimonialCard {
+  margin: 0;
+  padding: 2rem;
+  background: rgba(183, 101, 43, 0.07);
+  border-radius: 18px;
+  border: 1px solid rgba(183, 101, 43, 0.12);
 }
 
-/* current desktop stays as-is */
-.hero {
-  /* whatever you have now */
-  min-height: 90vh;                /* existing */
-  padding: 0 0 8vh 8vw;            /* existing */
-  background: url('/images/hero.jpg') center/cover no-repeat;
-  position: relative;
+.testimonialCard blockquote {
+  margin: 0 0 1.25rem;
+  font-family: var(--heading-font);
+  font-size: 1.25rem;
+  line-height: 1.45;
+}
+
+.testimonialCard figcaption {
+  font-size: 0.9rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted-ink);
+}
+
+.founderSection {
+  background: #f1ebe4;
+}
+
+.founderContent {
+  max-width: 760px;
+  margin: 0 auto;
   display: flex;
-  align-items: flex-end;
+  flex-direction: column;
+  gap: 1.5rem;
 }
 
-/* MOBILE: make the section much shorter */
-@media (max-width: 700px) {
+.founderContent p {
+  margin: 0;
+  color: var(--muted-ink);
+}
+
+@media (max-width: 640px) {
   .hero {
-    /* use small viewport units so Safari toolbars don’t inflate it */
-    min-height: 56svh;             /* try 52–60svh to taste */
-    padding: 0 0 6svh 6vw;         /* less bottom padding */
-    background-position: center 40%;
+    padding: 6rem 1.25rem 5rem;
   }
 
-  .heroText h1 {
-    font-size: clamp(1.8rem, 8vw, 2.4rem); /* smaller heading */
-    letter-spacing: 0.1em;
+  .sectionHeader {
+    margin-bottom: 2.5rem;
   }
 
-  .tenor {
-    font-size: 0.85rem;
-    letter-spacing: 0.22em;
-    margin-left: 0;
+  .ctaGroup {
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
   }
-}
 
-/* If you want it even tighter, you can hard-cap the hero height: */
-@media (max-width: 700px) {
-  .hero { max-height: 520px; }     /* optional cap */
+  .primaryCta,
+  .secondaryCta {
+    width: 100%;
+  }
 }
