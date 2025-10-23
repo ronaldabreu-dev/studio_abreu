@@ -3,67 +3,69 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import styles from './Header.module.css';
 
+const NAV_ITEMS = [
+  { href: '/', label: 'Home' },
+  { href: '/work', label: 'Work' },
+  { href: '/about', label: 'Approach' },
+  { href: '/pricing', label: 'Pricing' },
+  { href: '/contact', label: 'Contact' },
+];
+
 export default function Header() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const router = useRouter();
-  const forceScrolled = router.pathname === '/calendar/[slug]';
 
   useEffect(() => {
-    if (forceScrolled) {
-      setScrolled(true);
-      return;
-    }
-
     const onScroll = () => {
-      // 60vh is the height of the hero section
-      if (window.scrollY > window.innerHeight * 0.6) {
+      if (window.scrollY > 32) {
         setScrolled(true);
       } else {
         setScrolled(false);
       }
     };
-    window.addEventListener('scroll', onScroll);
+    window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
-  }, [forceScrolled]);
+  }, []);
+
+  useEffect(() => {
+    setOpen(false);
+  }, [router.pathname]);
 
   return (
     <header className={`${styles.header}${scrolled ? ' ' + styles.scrolled : ''}`}>
-      <Link href="/" className="logo">ERIC FINBARR CAREY |  TENOR</Link>
-      <button
-        className={styles.navToggle}
-        aria-label="Toggle Menu"
-        onClick={() => setOpen(!open)}
-      >
-        ☰
-      </button>
-      <nav className={`${styles.nav} ${open ? styles.navOpen : ''}`}>
-        <ul>
-          <li><Link href="/">Home</Link></li>
-          <li><Link href="/about">About</Link></li>
-          <li><Link href="/calendar">Calendar</Link></li>
-          <li><Link href="/media">Media</Link></li>
-          <li><Link href="/press">Press</Link></li>
-          <li><Link href="/contact">Contact</Link></li>
-        </ul>
-      </nav>
-      <div className={styles.socialLinks}>
-        <a
-          href="https://soundcloud.com/user-334949814"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="SoundCloud"
+      <div className={styles.inner}>
+        <Link href="/" className="logo">
+          <span className={styles.wordmark}>Studio Abreu</span>
+        </Link>
+        <button
+          className={styles.navToggle}
+          aria-label="Toggle menu"
+          onClick={() => setOpen(!open)}
         >
-          <i className="fab fa-soundcloud"></i>
-        </a>
-        <a
-          href="https://instagram.com/finbarrcalamitousec"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Instagram"
-        >
-          <i className="fab fa-instagram"></i>
-        </a>
+          <span />
+          <span />
+        </button>
+        <nav className={`${styles.nav} ${open ? styles.navOpen : ''}`}>
+          <ul>
+            {NAV_ITEMS.map(item => (
+              <li key={item.href}>
+                <Link href={item.href} className={router.pathname === item.href ? styles.active : undefined}>
+                  {item.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+          <div className={styles.metaLinks}>
+            <a href="mailto:hello@studioabreu.com">hello@studioabreu.com</a>
+            <a href="https://instagram.com/studioabreu" target="_blank" rel="noopener noreferrer">
+              Instagram ↗
+            </a>
+          </div>
+        </nav>
+        <Link href="/contact" className={styles.headerCta}>
+          Book a call
+        </Link>
       </div>
     </header>
   );

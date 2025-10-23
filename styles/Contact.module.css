@@ -1,352 +1,135 @@
 .main {
-  font-family: var(--primary-font);
-  background: #e5e0d3;
-  color: #222;
+  background: var(--background-color);
 }
 
 .hero {
-  min-height: 80vh;
-  background: url('/images/portrait1_bw.jpg') center/cover no-repeat;
-  position: relative;
+  padding: 7rem 1.5rem 5rem;
+  background: linear-gradient(135deg, #121512, #1c241d);
+  color: #f5f1eb;
+}
+
+.heroInner {
+  max-width: 720px;
+  margin: 0 auto;
   display: flex;
-  align-items: flex-end;
-  padding: 0 0 8vh 8vw;
-}
-
-.hero::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.55);
-}
-
-.heroContent {
-  position: relative;
-  z-index: 2;
-  max-width: 520px;
-  padding: 2.5rem 3rem;
-  background: rgba(0, 0, 0, 0.6);
-  border-left: 6px solid #bfae5c;
-  box-shadow: 0 18px 36px rgba(0, 0, 0, 0.35);
+  flex-direction: column;
+  gap: 1.4rem;
 }
 
 .heroEyebrow {
   margin: 0;
-  font-size: 0.875rem;
   letter-spacing: 0.3em;
   text-transform: uppercase;
-  color: #f3e7b4;
+  font-size: 0.74rem;
+  color: rgba(245, 241, 235, 0.6);
 }
 
-.heroTitle {
-  margin: 0.25rem 0 0.5rem;
-  font-family: var(--heading-font);
-  font-size: clamp(2.5rem, 5vw, 3.4rem);
-  letter-spacing: 0.12em;
-  color: #bfae5c;
-}
-
-.heroSubtitle {
-  margin: 0;
-  font-size: 1.1rem;
-  line-height: 1.6;
-  color: #f3e7b4;
-}
-
-@media (max-width: 768px) {
-  .hero {
-    padding: 0 0 12vh 8vw;
-  }
-
-  .heroContent {
-    padding: 2rem;
-  }
-}
-
-@media (max-width: 540px) {
-  .hero {
-    padding: 0 0 12vh 6vw;
-  }
-
-  .heroContent {
-    padding: 1.75rem 1.5rem;
-  }
-
-  .heroSubtitle {
-    font-size: 1rem;
-  }
-}
-
-.formSection {
-  max-width: 600px;
-  margin: 0 auto;
-  padding: 4rem 2rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-}
-
-.formHeader {
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-  color: #3d3722;
-}
-
-.formTitle {
+.hero h1 {
   margin: 0;
   font-family: var(--heading-font);
-  font-size: clamp(1.75rem, 4vw, 2.2rem);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: #3a3315;
+  font-size: clamp(2.4rem, 4.6vw, 3.2rem);
+  line-height: 1.2;
 }
 
-.formSubtitle {
+.hero p {
   margin: 0;
-  font-size: 1.02rem;
-  line-height: 1.6;
-  color: #4a4120;
-}
-
-
-.form {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  background: #fff;
-  padding: 2rem;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-
-.form input,
-.form textarea {
-  padding: 0.75rem 1rem;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  background: #f9f9f9;
-}
-
-.form input:focus,
-.form textarea:focus {
-  outline: none;
-  border-color: #bfae5c;
-  box-shadow: 0 0 0 2px rgba(191, 174, 92, 0.2);
-}
-
-.form button {
-  padding: 0.75rem;
-  background: var(--primary-color);
-  color: var(--background-color);
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background 0.3s ease;
-}
-
-.form button:hover {
-  background: #a8964e;
-}
-
-.managementSection {
-  max-width: 960px;
-  margin: 0 auto;
-  padding: 4rem 3rem;
-  background: rgba(255, 255, 255, 0.88);
-  border-radius: 18px;
-  border-left: 6px solid #bfae5c;
-  box-shadow: 0 18px 40px rgba(34, 34, 34, 0.15);
-  display: flex;
-  flex-direction: column;
-  gap: 2.5rem;
-}
-
-.managementIntro {
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  color: #222;
-}
-
-.managementEyebrow {
-  margin: 0;
-  font-size: 0.82rem;
-  letter-spacing: 0.32em;
-  text-transform: uppercase;
-  color: #8f7d32;
-  font-weight: 600;
-}
-
-.managementTitle {
-  margin: 0;
-  font-family: var(--heading-font);
-  font-size: clamp(2rem, 4vw, 2.6rem);
-  letter-spacing: 0.1em;
-  color: #3a3315;
-}
-
-.managementIntro p {
-  margin: 0;
-  line-height: 1.7;
-  color: #3d3722;
+  color: rgba(245, 241, 235, 0.78);
   font-size: 1.05rem;
 }
 
-.managementBadge {
-  align-self: center;
-  padding: 0.45rem 1.35rem;
-  border-radius: 999px;
-  background: rgba(191, 174, 92, 0.14);
-  color: #66591f;
-  font-size: 0.78rem;
-  letter-spacing: 0.22em;
+.contactMeta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 2rem;
+  font-size: 0.9rem;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
-  font-weight: 600;
+  color: rgba(245, 241, 235, 0.65);
 }
 
-.managementGrid {
+.formSection {
+  padding: 5rem 1.5rem 6rem;
+}
+
+.form {
+  max-width: 560px;
+  margin: 0 auto;
+  background: white;
+  padding: 2.75rem;
+  border-radius: 22px;
+  box-shadow: 0 30px 55px rgba(27, 30, 26, 0.12);
+  border: 1px solid rgba(27, 30, 26, 0.06);
   display: grid;
-  gap: 1.75rem;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
 }
 
-.managerCard {
-  background: rgba(255, 255, 255, 0.95);
-  padding: 1.75rem;
-  border-radius: 14px;
-  border: 1px solid rgba(191, 174, 92, 0.3);
-  box-shadow: 0 12px 28px rgba(34, 34, 34, 0.12);
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-}
-
-.managerName {
-  margin: 0;
-  font-family: var(--heading-font);
-  font-size: 1.35rem;
-  letter-spacing: 0.06em;
-  color: #2d2814;
-}
-
-.managerTitle {
-  margin: 0;
+.field {
+  display: grid;
+  gap: 0.6rem;
+  font-size: 0.95rem;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  letter-spacing: 0.26em;
-  font-size: 0.7rem;
-  color: #8f7d32;
-  font-weight: 600;
+  color: var(--muted-ink);
 }
 
-.managerLinks {
-  display: flex;
-  flex-direction: column;
-  gap: 0.55rem;
+.field input,
+.field textarea {
+  font: inherit;
+  padding: 0.85rem 1rem;
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+  background: rgba(249, 246, 241, 0.6);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
-.managerLinks a {
-  color: #3e3720;
-  font-weight: 600;
-  text-decoration: none;
-  letter-spacing: 0.04em;
-  transition: color 0.3s ease;
-  word-break: break-word;
-}
-
-.managerLinks a:hover,
-.managerLinks a:focus {
-  color: #a8964e;
+.field input:focus,
+.field textarea:focus {
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 3px rgba(183, 101, 43, 0.2);
   outline: none;
 }
 
-.managementProfileLink {
-  align-self: center;
-  display: inline-block;
-  padding: 0.85rem 1.85rem;
-  background: #bfae5c;
-  color: #221d0d;
-  font-weight: 700;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
+.submitButton {
+  justify-self: start;
+  padding: 0.9rem 2.2rem;
   border-radius: 999px;
-  text-decoration: none;
-  box-shadow: 0 12px 24px rgba(34, 34, 34, 0.15);
-  transition: background 0.3s ease, transform 0.3s ease;
+  border: 1px solid transparent;
+  background: linear-gradient(135deg, #1d241d, #151c15);
+  color: #f5f1eb;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: transform 0.3s ease, background 0.3s ease;
 }
 
-.managementProfileLink:hover,
-.managementProfileLink:focus {
-  background: #a8964e;
+.submitButton:hover,
+.submitButton:focus {
   transform: translateY(-2px);
-  outline: none;
+  background: var(--accent-color);
+  color: #fefaf5;
 }
 
-@media (max-width: 900px) {
-  .managementSection {
-    padding: 3.5rem 2.25rem;
-  }
-
-  .managementProfileLink {
-    letter-spacing: 0.14em;
-  }
+.statusSuccess,
+.statusError {
+  margin: 0;
+  font-size: 0.9rem;
 }
 
-@media (max-width: 600px) {
-  .managementSection {
-    padding: 3rem 1.75rem;
-    border-left-width: 4px;
-  }
-
-  .managementTitle {
-    letter-spacing: 0.08em;
-  }
-
-  .managementProfileLink {
-    width: 100%;
-    text-align: center;
-  }
+.statusSuccess {
+  color: #246b3f;
 }
 
-@media (max-width: 420px) {
-  .managementSection {
-    padding: 2.75rem 1.5rem;
-  }
-
-  .managementIntro p {
-    font-size: 1rem;
-  }
-
-  .managerCard {
-    padding: 1.5rem;
-  }
+.statusError {
+  color: #b33b2f;
 }
 
-.hero {
-  /* fallback for older browsers */
-  min-height: 90vh;
-
-  /* modern browsers – correct on iOS/Android when URL bars show/hide */
-  min-height: 90svh;   /* small viewport height */
-  min-height: 90dvh;   /* dynamic viewport height */
-
-  background: url('/images/portrait1_bw.jpg') center/cover no-repeat;
-  position: relative;
-  display: flex;
-  align-items: flex-end;
-  padding: 0 0 8vh 8vw;
-}
-@media (max-width: 768px) {
+@media (max-width: 640px) {
   .hero {
-    /* keep the same pattern on mobile too */
-    min-height: 50vh;
-    min-height: 50svh;
-    min-height: 50dvh;
-    padding: 0 0 12vh 8vw;
+    padding: 6rem 1.25rem 4.5rem;
   }
-  .heroContent {
-    display: none;
+
+  .form {
+    padding: 2.2rem;
   }
 }

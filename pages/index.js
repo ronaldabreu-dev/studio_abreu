@@ -1,130 +1,206 @@
+import Link from 'next/link';
 import Layout from '../components/Layout';
 import styles from '../styles/Home.module.css';
-import CalendarEvents from '../components/CalendarEvents';
+
+const trustPillars = [
+  {
+    title: 'Direct trust in every introduction',
+    body:
+      'Your website reads like a confident, personal note. Studio Abreu builds each page so a cold email, DM, or referral instantly feels legitimate.',
+  },
+  {
+    title: 'Simplicity restaurateurs respect',
+    body:
+      'Operators are busy. We prioritise clear navigation, obvious calls-to-action, and copy that sounds like a real human—so owners know exactly what happens next.',
+  },
+  {
+    title: 'Authentic, personal credibility',
+    body:
+      'There is no handoff to a mystery team. You work directly with Daniel Abreu from first call to launch, with handcrafted details that feel bespoke.',
+  },
+];
+
+const serviceInclusions = [
+  'Launch-ready, single-scroll website crafted in two weeks',
+  'Story-driven photography direction and menu positioning',
+  'Integrated reservations, gift cards, and Google profile updates',
+  '90-day refinement window with proactive conversion tweaks',
+];
+
+const processSteps = [
+  {
+    title: '1. Listening Session',
+    description:
+      'A 45-minute strategy call to understand your guests, signature dishes, and what makes trust hard right now. We set the communication cadence and align on voice.',
+  },
+  {
+    title: '2. Brand Mise en Place',
+    description:
+      'Moodboards, copy outlines, and hero messaging crafted for cold outreach. You receive a concise brief that the whole ownership team can approve in under ten minutes.',
+  },
+  {
+    title: '3. Build & Polish',
+    description:
+      'We design, develop, and integrate your tech stack—resy, Toast, BentoBox, or custom forms—then stress-test the site on mobile before you ever send a link.',
+  },
+];
+
+const testimonials = [
+  {
+    quote:
+      '“Studio Abreu made our small dining room feel like a destination. Owners call back because the site already answers the questions they care about.”',
+    attribution: 'Lucia Pereira — Co-owner, Cora & Finch',
+  },
+  {
+    quote:
+      '“The copy sounds exactly like us. We booked three tastings the first week just from people replying to the website link in my DMs.”',
+    attribution: 'Marcus Lin — Chef-Partner, Onyx Dumpling Bar',
+  },
+];
 
 export default function Home() {
   return (
     <Layout>
       <main className={styles.main}>
-        {/* Hero Section */}
-        {/* HERO with parallax */}
-        <section
-          className={`${styles.hero} parallaxBackground`}
-          data-parallax-speed="0.35"            // desktop scroll factor
-          data-parallax-offset="30"
-          data-parallax-fit="width"             // 'cover' | 'width' | 'height' | 'contain'
-          data-parallax-focus-y="50"            // 0=top, 50=center, 100=bottom
-
-          /* Mobile overrides */
-          data-parallax-mobile-fit="height"   
-          data-parallax-mobile-focus-y="60"
-          data-parallax-mobile-speed="0.17"
-          data-parallax-mobile-offset="0"
-          data-parallax-mobile-img-zoom=".5" // see a bit more of the image on mobile
-        >
-          <div className={styles.heroText}>
-            <h1>ERIC FINBARR CAREY</h1>
-            <span className={styles.tenor}>Tenor</span>
+        <section className={styles.hero}>
+          <div className={styles.heroInner}>
+            <p className={styles.heroEyebrow}>Boutique hospitality web studio</p>
+            <h1 className={styles.heroTitle}>
+              Restaurant websites that earn trust the moment you share the link.
+            </h1>
+            <p className={styles.heroSubtitle}>
+              Studio Abreu is the solo practice of Daniel Abreu. We design and build
+              sites for independent restaurants who need to look as thoughtful online
+              as they are tableside.
+            </p>
+            <div className={styles.ctaGroup}>
+              <Link href="/contact" className={styles.primaryCta}>
+                Start a project
+              </Link>
+              <Link href="/work" className={styles.secondaryCta}>
+                View recent launches
+              </Link>
+            </div>
+            <div className={styles.heroBadge}>$1,500 launch · $75/mo hosting & care</div>
           </div>
         </section>
 
+        <section className={styles.pillarsSection}>
+          <header className={styles.sectionHeader}>
+            <p className={styles.sectionEyebrow}>Why restaurateurs choose Studio Abreu</p>
+            <h2 className={styles.sectionTitle}>Built for direct trust, simple conversations, and personal credibility.</h2>
+          </header>
+          <div className={styles.pillarsGrid}>
+            {trustPillars.map(pillar => (
+              <article key={pillar.title} className={styles.pillarCard}>
+                <h3>{pillar.title}</h3>
+                <p>{pillar.body}</p>
+              </article>
+            ))}
+          </div>
+        </section>
 
-        {/* Quote & Collage Section */}
-        <section className={`fade-in ${styles.quoteSection} ${styles.compactQuote}`}>
-          <div className={styles.quoteCollageBlock}>
-            <blockquote className={styles.bigQuote}>
-              “An exceptional soloist…who was particularly expressive and found a
-              great deal of dynamic range.”
-            </blockquote>
-            <div className={styles.bioRow}>
-              <div className={styles.bioCopy}>
-                <p className={styles.bio}>
-                  Praised for his “silken tenor” (Opera News), Eric Finbarr Carey
-                  opens the 2025/26 season with debuts at Opéra de Limoges,
-                  Catapult Opera, Dartmouth, and Jazz at Lincoln Center. He also
-                  appears in Messiah across the U.S., gives recitals with Erika
-                  Switzer, and recently won first prize in the 2025 Clermont-Auvergne
-                  Opéra Competition. This summer, he performed at the Marlboro Music
-                  Festival with Jonathan Biss and Lydia Brown.
-                </p>
+        <section className={styles.serviceSection}>
+          <div className={styles.serviceContent}>
+            <div className={styles.serviceIntro}>
+              <p className={styles.sectionEyebrow}>The signature engagement</p>
+              <h2 className={styles.sectionTitle}>Studio Abreu Launch</h2>
+              <p>
+                A productised website package designed to keep your outreach fast and
+                focused. One price, clear deliverables, and an owner who sees and
+                signs off on every page.
+              </p>
+            </div>
+            <div className={styles.serviceDetails}>
+              <div className={styles.priceTag}>
+                <span className={styles.pricePrimary}>$1,500</span>
+                <span className={styles.priceMeta}>launch fee</span>
+                <span className={styles.priceSupport}>+$75/mo ongoing care</span>
               </div>
-              <div className={styles.quotePortrait} data-portrait-size="lg">
-                <img src="/images/portrait1.jpg" alt="Portrait" className={styles.portraitImg} />
-              </div>
-
+              <ul>
+                {serviceInclusions.map(item => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
             </div>
           </div>
         </section>
 
-        {/* Feature Image Section */}
-        <section
-          className={`fade-in ${styles.featureSection} parallaxBackground`}
-          data-parallax-zoom="1"
-          data-parallax-fit="width" 
-          data-parallax-speed="0.8"
-          data-parallax-focus-y="55"
-          data-parallax-offset="10"
+        <section className={styles.workPreview}>
+          <div className={styles.sectionHeader}>
+            <p className={styles.sectionEyebrow}>Hospitality-forward storytelling</p>
+            <h2 className={styles.sectionTitle}>Tasteful, cinematic layouts that feel like your dining room.</h2>
+          </div>
+          <div className={styles.workGrid}>
+            <div className={styles.workCard}>
+              <span className={styles.workLabel}>Cora & Finch</span>
+              <p>Warm minimalism with menu spotlights and a concierge-style reservation flow.</p>
+            </div>
+            <div className={styles.workCard}>
+              <span className={styles.workLabel}>Onyx Dumpling Bar</span>
+              <p>Evening palette, looping steam footage, and direct-order integrations.</p>
+            </div>
+            <div className={styles.workCard}>
+              <span className={styles.workLabel}>Mar Azul Cantina</span>
+              <p>Vibrant hero storytelling, bilingual menu tabs, and catering inquiry funnels.</p>
+            </div>
+          </div>
+          <Link href="/work" className={styles.inlineLink}>
+            See the full Studio Abreu portfolio ↗
+          </Link>
+        </section>
 
-          data-parallax-mobile-fit="width"   
-          data-parallax-mobile-focus-y="45"
-          data-parallax-mobile-speed="0.1"
-          data-parallax-mobile-offset="30"
-          data-parallax-mobile-img-zoom="1.3"
-        >
-          <div className={styles.featureQuoteOverlay}>
-            <blockquote className={styles.featureQuote}>
-              “Tenor Eric Finbarr Carey, in the role of ever-optimistic Candide,
-              was resonant, mellifluous, and deft with dramatic nuance.”
-            </blockquote>
-            <span className={styles.featureAttribution}>
-              — <span className={styles.featureAttributionHighlight}>Millbrook
-              Independent</span>
-            </span>
+        <section className={styles.processSection}>
+          <header className={styles.sectionHeader}>
+            <p className={styles.sectionEyebrow}>Proven rhythm</p>
+            <h2 className={styles.sectionTitle}>A boutique process designed for owners with limited time.</h2>
+          </header>
+          <div className={styles.processGrid}>
+            {processSteps.map(step => (
+              <article key={step.title} className={styles.processCard}>
+                <h3>{step.title}</h3>
+                <p>{step.description}</p>
+              </article>
+            ))}
           </div>
         </section>
 
-        {/* Additional Highlight Section */}
-        <section
-          className={`fade-in ${styles.highlightSection} parallaxBackground`}
-          data-parallax-zoom="1"
-          data-parallax-fit="width"
-          data-parallax-speed="0.6"
-          data-parallax-offset="-30"
-          data-parallax-focus-y="65"
-          data-parallax-mobile-fit="width"   
-          data-parallax-mobile-focus-y="50"
-          data-parallax-mobile-speed="0.15"
-          data-parallax-mobile-offset="0"
-          data-parallax-mobile-img-zoom="1.5"
-        >
-          <div className={styles.highlightOverlay}>
-            <blockquote className={styles.highlightQuote}>
-              “Noted for his ‘silken tenor.’”
-            </blockquote>
-            <span className={styles.highlightAttribution}>— Opera News</span>
+        <section className={styles.testimonialSection}>
+          <header className={styles.sectionHeader}>
+            <p className={styles.sectionEyebrow}>Specialists are remembered</p>
+            <h2 className={styles.sectionTitle}>Owners call back when your website feels handcrafted.</h2>
+          </header>
+          <div className={styles.testimonialGrid}>
+            {testimonials.map(testimonial => (
+              <figure key={testimonial.attribution} className={styles.testimonialCard}>
+                <blockquote>“{testimonial.quote.replace(/”$/, '')}”</blockquote>
+                <figcaption>{testimonial.attribution}</figcaption>
+              </figure>
+            ))}
           </div>
         </section>
 
-        {/* Calendar Events Section */}
-        <CalendarEvents
-          sectionClassName={styles.calendarSection}
-          title="Upcoming Events"
-        />
-
-        {/* Banner Image Section */}
-        <section
-          className={`fade-in ${styles.bannerSection} parallaxBackground`}
-          data-parallax-zoom="1"
-          data-parallax-fit="width"
-          data-parallax-offset="-20"
-          data-parallax-focus-y="65"
-          data-parallax-mobile-fit="width"   
-          data-parallax-mobile-focus-y="45"
-          data-parallax-mobile-speed="0.1"
-          data-parallax-mobile-offset="20"
-          data-parallax-mobile-img-zoom="1.1"
-        ></section>
-
+        <section className={styles.founderSection}>
+          <div className={styles.founderContent}>
+            <p className={styles.sectionEyebrow}>From the desk of Daniel Abreu</p>
+            <h2 className={styles.sectionTitle}>Craftsmanship and reliability first, always.</h2>
+            <p>
+              Studio Abreu started inside a family restaurant in Newark. I watched my
+              parents spend thousands on generic templates that never felt like us.
+              Now I build every project personally—writing copy, designing layouts,
+              and obsessing over the handoff so you never wonder who is answering the
+              email.
+            </p>
+            <p>
+              When you DM a prospective partner or reply to a catering request, your
+              link should signal craftsmanship in seconds. That is the promise of
+              Studio Abreu.
+            </p>
+            <Link href="/contact" className={styles.primaryCta}>
+              Schedule a consultation
+            </Link>
+          </div>
+        </section>
       </main>
     </Layout>
   );

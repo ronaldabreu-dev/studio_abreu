@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import Layout from '../components/Layout';
 import styles from '../styles/Contact.module.css';
@@ -12,7 +11,7 @@ export default function Contact() {
     const payload = {
       name: form.get('name'),
       email: form.get('email'),
-      subject: form.get('subject'),
+      concept: form.get('concept'),
       message: form.get('message'),
     };
     try {
@@ -29,80 +28,43 @@ export default function Contact() {
   };
 
   return (
-    <Layout title="Contact">
+    <Layout title="Contact" description="Start a conversation with Studio Abreu about your restaurant website.">
       <main className={styles.main}>
-        <section
-          className={`${styles.hero} parallaxBackground`}
-          data-parallax-zoom="1"
-          data-parallax-fit="width"
-          data-parallax-focus-y="62"
-          data-parallax-offset="30"
-          data-parallax-mobile-fit="width"   
-          data-parallax-mobile-focus-y="71"
-          data-parallax-mobile-speed="0.12"
-          data-parallax-mobile-offset="0"
-          data-parallax-mobile-img-zoom="1.8"
-        >
-          <div className={styles.heroContent}>
-            <p className={styles.heroEyebrow}>Connect</p>
-            <h1 className={styles.heroTitle}>Contact</h1>
-            <p className={styles.heroSubtitle}>
-              For bookings, collaborations, or press inquiries, reach out to
-              Eric Finbarr Carey and his management team.
-            </p>
-          </div>
-        </section>
-
-        <section className={`fade-in ${styles.managementSection}`}>
-          <div className={styles.managementIntro}>
-            <p className={styles.managementEyebrow}>Representation</p>
-            <h2 className={styles.managementTitle}>TACT Artists Management</h2>
+        <section className={styles.hero}>
+          <div className={styles.heroInner}>
+            <p className={styles.heroEyebrow}>Work with Studio Abreu</p>
+            <h1>Let’s make your restaurant the obvious choice.</h1>
             <p>
-              Eric Finbarr Carey is represented worldwide by TACT Artists Management.
-              Please contact his team for booking, media, and collaboration
-              inquiries.
+              Share your concept, neighbourhood, and the momentum you want from your site. Daniel responds personally within one business day.
             </p>
-            <div className={styles.managementBadge}>Worldwide Exclusive Representation</div>
-          </div>
-          <div className={styles.managementGrid}>
-            <div className={styles.managerCard}>
-              <h3 className={styles.managerName}>Oliver Kretschmer</h3>
-              <p className={styles.managerTitle}>TACT Artists Management</p>
-              <div className={styles.managerLinks}>
-                <a href="mailto:oliver@tact4art.com">oliver@tact4art.com</a>
-                <a href="tel:+491702230823">+49 170 22 30 823</a>
-              </div>
-            </div>
-            <div className={styles.managerCard}>
-              <h3 className={styles.managerName}>Kristina Stefanova</h3>
-              <p className={styles.managerTitle}>TACT Artists Management</p>
-              <div className={styles.managerLinks}>
-                <a href="mailto:kristina@tact4art.com">kristina@tact4art.com</a>
-              </div>
+            <div className={styles.contactMeta}>
+              <span>hello@studioabreu.com</span>
+              <span>Newark · Remote worldwide</span>
             </div>
           </div>
-          <a
-            className={styles.managementProfileLink}
-            href="https://tact4art.com/profile/EricFinbarrCarey"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            View Eric Finbarr Carey's profile on TACT Artists Management ↗
-          </a>
         </section>
 
-        <section className={`fade-in ${styles.formSection}`}>
-          <div className={styles.formHeader}>
-            <h2 className={styles.formTitle}>Get in touch</h2>
-          </div>
+        <section className={styles.formSection}>
           <form className={styles.form} onSubmit={handleSubmit}>
-            <input type="text" name="name" placeholder="Name" required />
-            <input type="email" name="email" placeholder="Email" required />
-            <input type="text" name="subject" placeholder="Subject" required />
-            <textarea name="message" rows="5" placeholder="Message" required />
-            <button type="submit">Send</button>
-            {status === 'success' && <p>Message sent!</p>}
-            {status === 'error' && <p>There was an error sending your message.</p>}
+            <label className={styles.field}>
+              Name
+              <input type="text" name="name" required />
+            </label>
+            <label className={styles.field}>
+              Email
+              <input type="email" name="email" required />
+            </label>
+            <label className={styles.field}>
+              Concept or restaurant name
+              <input type="text" name="concept" required />
+            </label>
+            <label className={styles.field}>
+              Tell me about your goals
+              <textarea name="message" rows="5" required />
+            </label>
+            <button type="submit" className={styles.submitButton}>Send message</button>
+            {status === 'success' && <p className={styles.statusSuccess}>Message sent. Expect a reply within one business day.</p>}
+            {status === 'error' && <p className={styles.statusError}>Something went wrong. Please email hello@studioabreu.com.</p>}
           </form>
         </section>
       </main>
