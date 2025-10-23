@@ -1,0 +1,23 @@
+[
+  {
+    "title": "Mozart: Requiem – Tenor Soloist",
+    "date": "May 15, 2024",
+    "location": "New York Philharmonic",
+    "description": "A stirring performance of Mozart's Requiem with the New York Philharmonic.",
+    "image": "/images/orchestra.jpg"
+  },
+  {
+    "title": "Debut Recital – Carnegie Hall",
+    "date": "January 20, 2024",
+    "location": "Carnegie Hall",
+    "description": "Debut recital featuring Schubert and Schumann lieder.",
+    "image": "/images/portrait3.jpg"
+  },
+  {
+    "title": "Bach Cantatas with Baroque Ensemble",
+    "date": "October 12, 2023",
+    "location": "Boston Early Music Festival",
+    "description": "Selected Bach cantatas with period instruments.",
+    "image": "/images/B_06088.jpg"
+  }
+]

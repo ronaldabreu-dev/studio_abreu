@@ -1,0 +1,96 @@
+
+.main {
+  background: #e5e0d3;
+  color: #222;
+  font-family: var(--primary-font);
+  padding-bottom: 4rem;
+}
+
+.imageWrapper {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  max-width: 1200px;
+  padding: 12rem 0 1rem;
+}
+
+.eventImage {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.details {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.details h1 {
+  margin-top: 0;
+}
+
+.date {
+  font-weight: bold;
+  margin: 0.5rem 0;
+}
+
+.location {
+  margin-bottom: 1rem;
+}
+
+.description {
+  margin-bottom: 1rem;
+}
+
+.learnMore {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background: #f3e7b4;
+  color: #222;
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+
+.navWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  max-width: 800px;
+  margin: 2rem auto 0;
+}
+
+.navItem {
+  flex: 1;
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.navItem + .navItem {
+  margin-left: 1rem;
+}
+
+.navLabel {
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+.navDate {
+  font-weight: bold;
+  font-size: 0.9rem;
+  margin-right: 0.25rem;
+}
+
+.navTitle {
+  font-size: 0.9rem;
+}
+
+.navArrow {
+  font-size: 2rem;
+  margin-top: auto;
+}
