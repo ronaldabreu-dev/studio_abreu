@@ -36,12 +36,75 @@
 .logoLink {
   display: inline-flex;
   align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+}
+
+.logoLink:focus-visible {
+  outline: 2px solid rgba(183, 101, 43, 0.6);
+  outline-offset: 4px;
+  border-radius: 8px;
+}
+
+.logoImageWrap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .logo {
   height: auto;
   width: auto;
   max-height: clamp(64px, 10vw, 96px);
+}
+
+.logoWordmark {
+  position: relative;
+  display: inline-flex;
+  flex-direction: column;
+  font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+  font-size: 1.05rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  line-height: 1.05;
+  color: #1b1e1a;
+  padding-bottom: 0.15rem;
+}
+
+.logoWordmark span {
+  display: block;
+}
+
+.logoWordmark::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #b7652b 0%, #fcbf49 50%, #b7652b 100%);
+  transform: scaleX(0);
+  transform-origin: left;
+  opacity: 0;
+}
+
+.logoLink:hover .logoWordmark::after,
+.logoLink:focus-visible .logoWordmark::after {
+  animation: logoWordmarkSweep 0.6s ease-out forwards;
+}
+
+@keyframes logoWordmarkSweep {
+  0% {
+    transform: scaleX(0);
+    opacity: 0;
+  }
+  45% {
+    opacity: 1;
+  }
+  100% {
+    transform: scaleX(1);
+    opacity: 1;
+  }
 }
 
 .navToggle {
@@ -169,6 +232,11 @@
   }
 
   .nav ul li a {
+    font-size: 0.95rem;
+    letter-spacing: 0.12em;
+  }
+
+  .logoWordmark {
     font-size: 0.95rem;
     letter-spacing: 0.12em;
   }

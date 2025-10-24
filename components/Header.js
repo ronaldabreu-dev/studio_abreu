@@ -38,12 +38,18 @@ export default function Header() {
     <header className={`${styles.header}${scrolled ? ' ' + styles.scrolled : ''}`}>
       <div className={styles.inner}>
         <Link href="/" className={styles.logoLink}>
-          <Image
-            src={logo}
-            alt="Studio Abreu"
-            className={styles.logo}
-            priority
-          />
+          <span className={styles.logoImageWrap}>
+            <Image
+              src={logo}
+              alt="Studio Abreu"
+              className={styles.logo}
+              priority
+            />
+          </span>
+          <span className={styles.logoWordmark}>
+            <span>Studio</span>
+            <span>Abreu</span>
+          </span>
         </Link>
         <button
           className={styles.navToggle}
