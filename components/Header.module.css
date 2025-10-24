@@ -33,12 +33,15 @@
   margin: 0 auto;
 }
 
-.wordmark {
-  font-family: 'Playfair Display', Georgia, serif;
-  font-size: 1.4rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: #1b1e1a;
+.logoLink {
+  display: inline-flex;
+  align-items: center;
+}
+
+.logo {
+  height: auto;
+  width: auto;
+  max-height: 36px;
 }
 
 .navToggle {

@@ -40,13 +40,6 @@ a:focus {
   color: var(--accent-color);
 }
 
-.logo {
-  font-family: var(--heading-font);
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
 main {
   padding-top: 92px;
 }
@@ -70,13 +63,11 @@ section {
   align-items: start;
 }
 
-.footer-brand span {
+.footer-logo {
   display: block;
-  font-family: var(--heading-font);
-  font-size: 1.4rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  margin-bottom: 0.5rem;
+  max-width: 180px;
+  height: auto;
+  margin-bottom: 0.75rem;
 }
 
 .footer-brand p {
