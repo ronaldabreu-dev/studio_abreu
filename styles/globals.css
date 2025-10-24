@@ -41,7 +41,7 @@ a:focus {
 }
 
 main {
-  padding-top: 92px;
+  padding-top: clamp(104px, 18vw, 140px);
 }
 
 section {
@@ -65,9 +65,9 @@ section {
 
 .footer-logo {
   display: block;
-  max-width: 220px;
+  width: clamp(240px, 45vw, 340px);
   height: auto;
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.85rem;
 }
 
 .footer-brand p {
@@ -108,7 +108,7 @@ section {
 
 @media (max-width: 720px) {
   main {
-    padding-top: 80px;
+    padding-top: clamp(96px, 22vw, 124px);
   }
 
   section {

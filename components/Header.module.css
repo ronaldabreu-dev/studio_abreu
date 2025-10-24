@@ -41,7 +41,7 @@
 .logo {
   height: auto;
   width: auto;
-  max-height: 48px;
+  max-height: clamp(64px, 10vw, 96px);
 }
 
 .navToggle {
@@ -145,10 +145,6 @@
 @media (min-width: 900px) {
   .navToggle {
     display: none;
-  }
-
-  .logo {
-    max-height: 56px;
   }
 
   .nav {
