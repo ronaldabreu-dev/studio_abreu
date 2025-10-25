@@ -63,15 +63,91 @@ section {
   align-items: start;
 }
 
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.footer-brandMark {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.85rem;
+  text-decoration: none;
+  outline: none;
+}
+
+.footer-brandMark:focus-visible {
+  outline: 2px solid rgba(252, 191, 73, 0.55);
+  outline-offset: 6px;
+  border-radius: 10px;
+}
+
+.footer-logoWrap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .footer-logo {
   display: block;
-  width: clamp(240px, 45vw, 340px);
+  width: auto;
   height: auto;
-  margin-bottom: 0.85rem;
+  max-height: clamp(64px, 10vw, 96px);
+}
+
+.footer-wordmark {
+  position: relative;
+  display: inline-flex;
+  flex-direction: column;
+  font-family: var(--primary-font);
+  font-size: clamp(0.92rem, 1.5vw, 1.05rem);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  line-height: 1.05;
+  color: #f3efea;
+  padding-bottom: 0.18rem;
+}
+
+.footer-wordmark span {
+  display: block;
+}
+
+.footer-wordmark::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2px;
+  background: linear-gradient(90deg, rgba(252, 191, 73, 0.85) 0%, rgba(183, 101, 43, 0.95) 60%, rgba(252, 191, 73, 0.85) 100%);
+  transform: scaleX(0);
+  transform-origin: left;
+  opacity: 0;
+}
+
+.footer-brandMark:hover .footer-wordmark::after,
+.footer-brandMark:focus-visible .footer-wordmark::after {
+  animation: footerWordmarkSweep 0.7s ease-out forwards;
+}
+
+@keyframes footerWordmarkSweep {
+  0% {
+    transform: scaleX(0);
+    opacity: 0;
+  }
+  55% {
+    opacity: 1;
+  }
+  100% {
+    transform: scaleX(1);
+    opacity: 1;
+  }
 }
 
 .footer-brand p {
   margin: 0;
+  max-width: 360px;
   color: rgba(243, 239, 234, 0.75);
 }
 
