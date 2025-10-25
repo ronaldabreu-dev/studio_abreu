@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { useRouter } from 'next/router';
 import styles from './Header.module.css';
+import logo from '../public/images/studio_abreu_logo.png';
 
 const NAV_ITEMS = [
   { href: '/', label: 'Home' },
@@ -35,8 +37,19 @@ export default function Header() {
   return (
     <header className={`${styles.header}${scrolled ? ' ' + styles.scrolled : ''}`}>
       <div className={styles.inner}>
-        <Link href="/" className="logo">
-          <span className={styles.wordmark}>Studio Abreu</span>
+        <Link href="/" className={styles.logoLink}>
+          <span className={styles.logoImageWrap}>
+            <Image
+              src={logo}
+              alt="Studio Abreu"
+              className={styles.logo}
+              priority
+            />
+          </span>
+          <span className={styles.logoWordmark}>
+            <span>Studio</span>
+            <span>Abreu</span>
+          </span>
         </Link>
         <button
           className={styles.navToggle}
